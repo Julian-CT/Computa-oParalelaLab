@@ -1,6 +1,6 @@
 # Computa-oParalelaLab
 
-Atividade Realizada pelos alunos:
+LAB01 Realizada pelos alunos:
 
 
 -Julian Teixeira RA: 10400765

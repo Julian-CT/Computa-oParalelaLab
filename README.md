@@ -1,7 +1,10 @@
 # Computa-oParalelaLab
 
 Atividade Realizada pelos alunos:
+
+
 -Julian Teixeira RA: 10400765
+
 -Luis Castanho RA:
 
 

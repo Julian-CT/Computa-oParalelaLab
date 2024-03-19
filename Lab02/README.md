@@ -12,6 +12,8 @@
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/35000046-0cf6-4ab7-a268-fe0c93ca0747)
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/5aa85f87-6c5a-4130-bc93-20ae10e78124)
+
 
 2 - Gráfico speedup dos processadores:
 
@@ -24,7 +26,6 @@ Sp = T1/Tp
 6 processadores -> Sp = 0,0047/0,0060 = 0,78
 
 8 processadores -> Sp = 0,0047/0,0070 = 0,67
-
 
 
 

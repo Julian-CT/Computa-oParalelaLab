@@ -12,7 +12,7 @@ double x[N];
 double y[M];
 pthread_mutex_t mutex;
 
-void Pth_mat_vect(void *rank) {
+void *Pth_mat_vect(void *rank) {
     long my_rank = (long) rank;
     int local_m = M / THREAD_COUNT;
     int my_first_row = my_rank * local_m;
@@ -24,6 +24,7 @@ void Pth_mat_vect(void *rank) {
             y[i] += A[i][j] * x[j];
         }
     }
+    return NULL;
 }
 
 void generate_random_matrix(double A[M][N], int rows, int cols) {

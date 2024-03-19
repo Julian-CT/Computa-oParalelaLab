@@ -59,3 +59,9 @@ Speedup = T1/Tn
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144508430/828274e7-458d-4b1b-a588-e915e7dfa9ec)
 
 
+### Especificações do processador
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/0cd89ae8-5005-4c0d-879f-31496e88e28f)
+
+
+

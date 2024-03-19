@@ -1,31 +1,20 @@
 #include <stdio.h>
-#include <pthread.h>
 #include <stdlib.h>
+#include <pthread.h>
 #include <time.h>
 
 #define M 1000
 #define N 1000
-#define THREAD_COUNT 4
+#define NUM_THREADS 8
 
 double A[M][N];
 double x[N];
 double y[M];
-pthread_mutex_t mutex;
 
-void *Pth_mat_vect(void *rank) {
-    long my_rank = (long) rank;
-    int local_m = M / THREAD_COUNT;
-    int my_first_row = my_rank * local_m;
-    int my_last_row = (my_rank + 1) * local_m;
-
-    for (int i = my_first_row; i < my_last_row; i++) {
-        y[i] = 0.0;
-        for (int j = 0; j < N; j++) {
-            y[i] += A[i][j] * x[j];
-        }
-    }
-    return NULL;
-}
+typedef struct {
+    int start_row;
+    int end_row;
+} ThreadData;
 
 void generate_random_matrix(double A[M][N], int rows, int cols) {
     for (int i = 0; i < rows; i++) {
@@ -41,39 +30,57 @@ void generate_random_vector(double x[N], int size) {
     }
 }
 
-double calculate_execution_time(clock_t start_time, clock_t end_time) {
-    return ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+void *calculate_partial_sum(void *thread_arg) {
+    ThreadData *data = (ThreadData *) thread_arg;
+    int start_row = data->start_row;
+    int end_row = data->end_row;
+
+    for (int i = start_row; i < end_row; i++) {
+        y[i] = 0.0;
+        for (int j = 0; j < N; j++) {
+            y[i] += A[i][j] * x[j];
+        }
+    }
+
+    pthread_exit(NULL);
+}
+
+double calculate_execution_time(struct timespec start_time, struct timespec end_time) {
+    return (end_time.tv_sec - start_time.tv_sec) + (end_time.tv_nsec - start_time.tv_nsec) / 1e9;
 }
 
 int main() {
-    pthread_t thread_handles[THREAD_COUNT];
-    long thread;
-    clock_t start_time, end_time;
+    pthread_t threads[NUM_THREADS];
+    ThreadData thread_data[NUM_THREADS];
     srand((unsigned int) time(NULL));
-    pthread_mutex_init(&mutex, NULL); // Inicialização do mutex
 
     // Gerar matriz e vetor aleatórios
     generate_random_matrix(A, M, N);
     generate_random_vector(x, N);
 
-    // Marcar o início do cálculo
-    start_time = clock();
+    // Capturar tempo de início
+    struct timespec start_time;
+    clock_gettime(CLOCK_MONOTONIC, &start_time);
 
-    // Criar threads
-    for (thread = 0; thread < THREAD_COUNT; thread++) {
-        pthread_create(&thread_handles[thread], NULL, Pth_mat_vect, (void *) thread);
+    // Dividir o trabalho entre as threads
+    int chunk_size = M / NUM_THREADS;
+    for (int t = 0; t < NUM_THREADS; t++) {
+        thread_data[t].start_row = t * chunk_size;
+        thread_data[t].end_row = (t + 1) * chunk_size;
+        if (t == NUM_THREADS - 1) {
+            thread_data[t].end_row = M;  // Lidar com o caso onde M não é divisível por NUM_THREADS
+        }
+        pthread_create(&threads[t], NULL, calculate_partial_sum, (void *)&thread_data[t]);
     }
 
     // Aguardar término das threads
-    for (thread = 0; thread < THREAD_COUNT; thread++) {
-        pthread_join(thread_handles[thread], NULL);
+    for (int t = 0; t < NUM_THREADS; t++) {
+        pthread_join(threads[t], NULL);
     }
 
-    // Marcar o fim do cálculo
-    end_time = clock();
-
-    // Destruir o mutex
-    pthread_mutex_destroy(&mutex);
+    // Capturar tempo de término
+    struct timespec end_time;
+    clock_gettime(CLOCK_MONOTONIC, &end_time);
 
     // Imprimir vetor resultante y
     printf("Vetor resultante y:\n");

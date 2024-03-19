@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define M 1000
 #define N 1000
@@ -9,9 +10,9 @@
 double A[M][N];
 double x[N];
 double y[M];
-pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t mutex;
 
-void Pth_mat_vect(voidrank) {
+void Pth_mat_vect(void *rank) {
     long my_rank = (long) rank;
     int local_m = M / THREAD_COUNT;
     int my_first_row = my_rank * local_m;
@@ -23,8 +24,6 @@ void Pth_mat_vect(voidrank) {
             y[i] += A[i][j] * x[j];
         }
     }
-
-    return NULL;
 }
 
 void generate_random_matrix(double A[M][N], int rows, int cols) {
@@ -45,6 +44,7 @@ int main() {
     pthread_t thread_handles[THREAD_COUNT];
     long thread;
     srand((unsigned int) time(NULL));
+    pthread_mutex_init(&mutex, NULL); // Inicialização do mutex
 
     // Gerar matriz e vetor aleatórios
     generate_random_matrix(A, M, N);
@@ -59,6 +59,9 @@ int main() {
     for (thread = 0; thread < THREAD_COUNT; thread++) {
         pthread_join(thread_handles[thread], NULL);
     }
+
+    // Destruir o mutex
+    pthread_mutex_destroy(&mutex);
 
     // Imprimir vetor resultante y
     printf("Vetor resultante y:\n");

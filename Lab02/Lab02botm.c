@@ -41,15 +41,23 @@ void generate_random_vector(double x[N], int size) {
     }
 }
 
+double calculate_execution_time(clock_t start_time, clock_t end_time) {
+    return ((double)(end_time - start_time)) / CLOCKS_PER_SEC;
+}
+
 int main() {
     pthread_t thread_handles[THREAD_COUNT];
     long thread;
+    clock_t start_time, end_time;
     srand((unsigned int) time(NULL));
     pthread_mutex_init(&mutex, NULL); // Inicialização do mutex
 
     // Gerar matriz e vetor aleatórios
     generate_random_matrix(A, M, N);
     generate_random_vector(x, N);
+
+    // Marcar o início do cálculo
+    start_time = clock();
 
     // Criar threads
     for (thread = 0; thread < THREAD_COUNT; thread++) {
@@ -61,6 +69,9 @@ int main() {
         pthread_join(thread_handles[thread], NULL);
     }
 
+    // Marcar o fim do cálculo
+    end_time = clock();
+
     // Destruir o mutex
     pthread_mutex_destroy(&mutex);
 
@@ -70,6 +81,9 @@ int main() {
         printf("%.2f ", y[i]);
     }
     printf("\n");
+
+    // Calcular e imprimir o tempo de execução
+    printf("Tempo de execução: %.6f segundos\n", calculate_execution_time(start_time, end_time));
 
     return 0;
 }

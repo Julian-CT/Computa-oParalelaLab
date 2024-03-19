@@ -61,6 +61,8 @@ Speedup = T1/Tn
 
 ### Especificações do processador
 
+Intel i3 1215u
+
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/0cd89ae8-5005-4c0d-879f-31496e88e28f)
 
 

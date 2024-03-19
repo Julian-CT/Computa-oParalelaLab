@@ -7,15 +7,15 @@
 #define MAX_THREADS 8
 
 // Número de linhas e colunas da matriz
-int m = 100;
-int n = 50;
+int m = 1000;
+int n = 1000;
 
 // Número de threads a serem usadas
-int thread_count = 8; // Altere este valor para 2, 4, 6 ou 8
+int thread_count = 8; // Altere este valor para 1, 2, 4, 6 ou 8
 
 // Declarando a matriz, vetor e vetor resultante
-double A[100][50];
-double x[50];
+double A[1000][1000];
+double x[1000];
 double *y;
 
 // Função que cada thread vai executar

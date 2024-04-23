@@ -1,5 +1,5 @@
-#include <iostream>
-#include <cmath>
+#include <stdio.h>
+#include <math.h>
 #include <omp.h>
 
 #define NUM_THREADS 4
@@ -24,8 +24,7 @@ int main() {
         sum += area;
     }
 
-    std::cout << "Aproximação da área sob a curva: " << sum << std::endl;
+    printf("Aproximação da área sob a curva: %f\n", sum);
     
     return 0;
 }
-

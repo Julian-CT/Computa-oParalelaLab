@@ -2,7 +2,7 @@
 #include <math.h>
 #include <omp.h>
 
-#define NUM_THREADS 1
+#define NUM_THREADS 2
 #define NUM_SUBINTERVALS 1000000
 #define LOWER_BOUND 0.0
 #define UPPER_BOUND M_PI

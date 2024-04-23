@@ -63,6 +63,22 @@ Tempo de execução em 8 processadores com a derivativa critical:
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/110931de-e26c-486d-9522-610b18715386)
 
+Cálculo do speedup em 2 processadores:
+
+S = T(1)/T(N) --> S = 73/56 ≃ 1,30
+
+Cálculo do speedup em 4 processadores:
+
+S = T(1)/T(N) --> S = 73/31 ≃ 2,35
+
+Cálculo do speedup em 6 processadores:
+
+S = T(1)/T(N) --> S = 73/24 = 3,04
+
+Cálculo do speedup em 8 processadores:
+
+S = T(1)/T(N) --> S = 73/18 ≃ 4,05
+
 ## Especificações do Processador
 
 Intel i3 1215u

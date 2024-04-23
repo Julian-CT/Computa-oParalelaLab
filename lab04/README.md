@@ -21,6 +21,11 @@ Tempo de execução em 8 processadores:
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/19ea4429-b634-4447-8208-e85f2256b09d)
 
+Gráfico tempos de execução:
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/bba2d573-20a8-4e6d-9c03-7181faa114d7)
+
+
 ## 2-
 
 Cálculo do speedup em 2 processadores:
@@ -41,7 +46,7 @@ S = T(1)/T(N) --> S = 0,69/0,21 ≃ 3,29
 
 Gráfico dos speedups
 
-![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/bb017c8d-2e2e-41fd-a076-51c6eab7ae36)
+
 
 
 ## 3-
@@ -86,7 +91,7 @@ S = T(1)/T(N) --> S = 0,73/0,18 ≃ 4,05
 
 Gráfico dos speedups
 
-![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/71567490-40c8-41d9-a8b6-7ddb6c22e9d9)
+
 
 
 ## Especificações do Processador

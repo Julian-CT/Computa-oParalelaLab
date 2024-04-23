@@ -20,3 +20,14 @@ Tempo de execução em 6 processadores:
 Tempo de execução em 8 processadores:
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/19ea4429-b634-4447-8208-e85f2256b09d)
+
+2-
+
+3-
+
+Tempo de execução em 1 processador com a derivativa critical:
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/2e6e182d-90df-4cab-a02f-c6248f5ffbdd)
+
+Tempo de execução em 2 processadores com a derivativa critical:
+

@@ -15,3 +15,5 @@ Tempo de execução em 4 processadores:
 Tempo de execução em 6 processadores:
 
 
+Tempo de execução em 6 processadores:
+

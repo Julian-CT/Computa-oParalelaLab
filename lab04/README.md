@@ -23,6 +23,22 @@ Tempo de execução em 8 processadores:
 
 ## 2-
 
+Cálculo do speedup em 2 processadores:
+
+S = T(1)/T(N) --> S = 69/54 ≃ 1,28
+
+Cálculo do speedup em 4 processadores:
+
+S = T(1)/T(N) --> S = 69/42 ≃ 1,64
+
+Cálculo do speedup em 6 processadores:
+
+S = T(1)/T(N) --> S = 69/23 = 3
+
+Cálculo do speedup em 8 processadores:
+
+S = T(1)/T(N) --> S = 69/21 ≃ 3,29
+
 ## 3-
 
 Ao introduzir a diretiva critical na solução, estamos garantindo que apenas uma thread execute a seção crítica do código por vez. Isso é útil quando várias threads podem tentar acessar ou modificar uma região crítica de dados simultaneamente, o que poderia resultar em condições de corrida. Com essa modificação, a seção crítica onde a variável sum é atualizada é protegida pela diretiva critical, garantindo que apenas uma thread execute essa parte do código por vez. Isso evita condições de corrida e torna o código seguro para execução paralela.

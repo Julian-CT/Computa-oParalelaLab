@@ -90,8 +90,7 @@ S = T(1)/T(N) --> S = 0,73/0,18 ≃ 4,05
 
 Gráfico dos speedups
 
-
-
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/775cf2a6-50b6-4556-8f26-655959f7eabb)
 
 ## Especificações do Processador
 

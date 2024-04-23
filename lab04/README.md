@@ -31,3 +31,17 @@ Tempo de execução em 1 processador com a derivativa critical:
 
 Tempo de execução em 2 processadores com a derivativa critical:
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/f1826069-b3e3-4bb5-ae4d-c1bdfb0a1a04)
+
+Tempo de execução em 4 processadores com a derivativa critical:
+
+
+
+Tempo de execução em 6 processadores com a derivativa critical:
+
+
+
+Tempo de execução em 8 processadores com a derivativa critical:
+
+
+

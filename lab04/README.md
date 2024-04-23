@@ -49,6 +49,8 @@ Tempo de execução em 8 processadores com a derivativa critical:
 
 ## Especificações do Processador
 
+Intel i3 1215u
+
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/2f54d488-f131-4ab4-a8d1-ccf29f31fea6)
 
 

@@ -39,6 +39,11 @@ Cálculo do speedup em 8 processadores:
 
 S = T(1)/T(N) --> S = 0,69/0,21 ≃ 3,29
 
+Gráfico dos speedups
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/bb017c8d-2e2e-41fd-a076-51c6eab7ae36)
+
+
 ## 3-
 
 Ao introduzir a diretiva critical na solução, estamos garantindo que apenas uma thread execute a seção crítica do código por vez. Isso é útil quando várias threads podem tentar acessar ou modificar uma região crítica de dados simultaneamente, o que poderia resultar em condições de corrida. Com essa modificação, a seção crítica onde a variável sum é atualizada é protegida pela diretiva critical, garantindo que apenas uma thread execute essa parte do código por vez. Isso evita condições de corrida e torna o código seguro para execução paralela.

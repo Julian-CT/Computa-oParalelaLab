@@ -84,6 +84,11 @@ Cálculo do speedup em 8 processadores:
 
 S = T(1)/T(N) --> S = 0,73/0,18 ≃ 4,05
 
+Gráfico dos speedups
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/71567490-40c8-41d9-a8b6-7ddb6c22e9d9)
+
+
 ## Especificações do Processador
 
 Intel i3 1215u

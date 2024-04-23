@@ -25,6 +25,8 @@ Tempo de execução em 8 processadores:
 
 3-
 
+Ao introduzir a diretiva critical na solução, estamos garantindo que apenas uma thread execute a seção crítica do código por vez. Isso é útil quando várias threads podem tentar acessar ou modificar uma região crítica de dados simultaneamente, o que poderia resultar em condições de corrida. Com essa modificação, a seção crítica onde a variável sum é atualizada é protegida pela diretiva critical, garantindo que apenas uma thread execute essa parte do código por vez. Isso evita condições de corrida e torna o código seguro para execução paralela.
+
 Tempo de execução em 1 processador com a derivativa critical:
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/2e6e182d-90df-4cab-a02f-c6248f5ffbdd)

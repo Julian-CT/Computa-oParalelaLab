@@ -19,3 +19,4 @@ Tempo de execução em 6 processadores:
 
 Tempo de execução em 8 processadores:
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/19ea4429-b634-4447-8208-e85f2256b09d)

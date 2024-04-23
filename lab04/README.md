@@ -25,19 +25,19 @@ Tempo de execução em 8 processadores:
 
 Cálculo do speedup em 2 processadores:
 
-S = T(1)/T(N) --> S = 69/54 ≃ 1,28
+S = T(1)/T(N) --> S = 0,69/0,54 ≃ 1,28
 
 Cálculo do speedup em 4 processadores:
 
-S = T(1)/T(N) --> S = 69/42 ≃ 1,64
+S = T(1)/T(N) --> S = 0,69/0,42 ≃ 1,64
 
 Cálculo do speedup em 6 processadores:
 
-S = T(1)/T(N) --> S = 69/23 = 3
+S = T(1)/T(N) --> S = 0,69/0,23 = 3
 
 Cálculo do speedup em 8 processadores:
 
-S = T(1)/T(N) --> S = 69/21 ≃ 3,29
+S = T(1)/T(N) --> S = 0,69/0,21 ≃ 3,29
 
 ## 3-
 
@@ -65,19 +65,19 @@ Tempo de execução em 8 processadores com a derivativa critical:
 
 Cálculo do speedup em 2 processadores:
 
-S = T(1)/T(N) --> S = 73/56 ≃ 1,30
+S = T(1)/T(N) --> S = 0,73/0,56 ≃ 1,30
 
 Cálculo do speedup em 4 processadores:
 
-S = T(1)/T(N) --> S = 73/31 ≃ 2,35
+S = T(1)/T(N) --> S = 0,73/0,31 ≃ 2,35
 
 Cálculo do speedup em 6 processadores:
 
-S = T(1)/T(N) --> S = 73/24 = 3,04
+S = T(1)/T(N) --> S = 0,73/0,24 = 3,04
 
 Cálculo do speedup em 8 processadores:
 
-S = T(1)/T(N) --> S = 73/18 ≃ 4,05
+S = T(1)/T(N) --> S = 0,73/0,18 ≃ 4,05
 
 ## Especificações do Processador
 

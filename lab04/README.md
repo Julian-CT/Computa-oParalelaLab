@@ -46,8 +46,7 @@ S = T(1)/T(N) --> S = 0,69/0,21 ≃ 3,29
 
 Gráfico dos speedups
 
-
-
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/1af49be2-c269-4087-b6dc-6ac3282ddeb4)
 
 ## 3-
 

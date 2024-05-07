@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <pthread.h>
+#include <stdlib.h>
 
 // Número de threads a serem usadas
-#define NUM_THREADS 1
-#define TIME_TARTARUGA 12
+#define NUM_THREADS 8
 
-double distancia_total = 0.0;
+double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
 
 // Função para calcular o fatorial
@@ -18,19 +18,17 @@ double factorial(int n) {
 }
 
 // Função executada por cada thread
-void *calcularDistancia(void *thread_id) {
+void *calcularE(void *thread_id) {
     long id = (long)thread_id;
-    int segundos_por_thread = TIME_TARTARUGA / NUM_THREADS; // Distribuir o trabalho igualmente entre as threads
+    int termos_por_thread = 100 / NUM_THREADS; // Distribuir o trabalho igualmente entre as threads
 
-    for (int segundo = id * segundos_por_thread + 1; segundo <= (id + 1) * segundos_por_thread; segundo++) {
-        double distancia_segundo = 1.0 / factorial(segundo);
-
-        // Trava a variavel distancia_total para garantir exclusão mútua
+    for (int termo = id * termos_por_thread; termo < (id + 1) * termos_por_thread; termo++) {
+        double termo_atual = 1.0 / factorial(termo);
+        
+        // Trava a variável e_total para garantir exclusão mútua
         pthread_mutex_lock(&lock);
-        distancia_total += distancia_segundo;
-        pthread_mutex_unlock(&lock); // Destrava a variavel distancia_total
-
-        printf("Thread %ld - Segundo %d: Andou %.8f | Distância parcial: %.8f metros\n", id, segundo, distancia_segundo, distancia_total);
+        e_total += termo_atual;
+        pthread_mutex_unlock(&lock); // Destrava a variável e_total
     }
 
     pthread_exit(NULL);
@@ -40,15 +38,25 @@ int main() {
     pthread_t threads[NUM_THREADS];
     pthread_mutex_init(&lock, NULL); // Inicialização do mutex
 
+    clock_t start, end;
+    double elapsed_time;
+
+    start = clock(); // Início da contagem do tempo
+
     for (long t = 0; t < NUM_THREADS; t++) {
-        pthread_create(&threads[t], NULL, calcularDistancia, (void *)t);
+        pthread_create(&threads[t], NULL, calcularE, (void *)t);
     }
 
     for (int i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
 
-    printf("Distância total: %.8f metros\n", distancia_total);
+    end = clock(); // Fim da contagem do tempo
+
+    elapsed_time = ((double) (end - start)) / CLOCKS_PER_SEC;
+
+    printf("Valor de e final calculado: %.10f\n", e_total);
+    printf("Tempo total de execução: %.6f segundos\n", elapsed_time);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
     pthread_exit(NULL);

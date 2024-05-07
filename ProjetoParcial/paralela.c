@@ -47,8 +47,7 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    // Adicionando o valor inicial de 1/1! (que é 1) à soma total
-    e_total += 1.0;
+    e_total += 0.0;
 
     printf("Valor de e final calculado: %.20f\n", e_total);
 

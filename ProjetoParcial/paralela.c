@@ -4,7 +4,7 @@
 
 // Número de threads a serem usadas
 #define NUM_THREADS 8
-#define NUM_TERMS 1000 // Aumentando o número de termos para uma melhor precisão
+#define NUM_TERMS 999 // Reduzindo o número de termos por thread para compensar a remoção do termo inicial
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
@@ -23,7 +23,7 @@ void *calcularE(void *thread_id) {
     long id = (long)thread_id;
     int termos_por_thread = NUM_TERMS / NUM_THREADS; // Distribuir o trabalho igualmente entre as threads
 
-    for (int termo = id * termos_por_thread; termo < (id + 1) * termos_por_thread; termo++) {
+    for (int termo = id * termos_por_thread + 1; termo <= (id + 1) * termos_por_thread; termo++) {
         double termo_atual = 1.0 / factorial(termo);
         
         // Trava a variável e_total para garantir exclusão mútua
@@ -46,6 +46,9 @@ int main() {
     for (int i = 0; i < NUM_THREADS; i++) {
         pthread_join(threads[i], NULL);
     }
+
+    // Adicionando o valor inicial de 1/1! (que é 1) à soma total
+    e_total += 1.0;
 
     printf("Valor de e final calculado: %.20f\n", e_total);
 

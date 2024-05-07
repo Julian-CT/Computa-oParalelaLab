@@ -38,11 +38,6 @@ int main() {
     pthread_t threads[NUM_THREADS];
     pthread_mutex_init(&lock, NULL); // Inicialização do mutex
 
-    clock_t start, end;
-    double elapsed_time;
-
-    start = clock(); // Início da contagem do tempo
-
     for (long t = 0; t < NUM_THREADS; t++) {
         pthread_create(&threads[t], NULL, calcularE, (void *)t);
     }
@@ -51,12 +46,7 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    end = clock(); // Fim da contagem do tempo
-
-    elapsed_time = ((double) (end - start)) / CLOCKS_PER_SEC;
-
     printf("Valor de e final calculado: %.10f\n", e_total);
-    printf("Tempo total de execução: %.6f segundos\n", elapsed_time);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
     pthread_exit(NULL);

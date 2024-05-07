@@ -4,6 +4,7 @@
 
 // Número de threads a serem usadas
 #define NUM_THREADS 8
+#define NUM_TERMS 100 // Número de termos da série de Taylor a serem calculados
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
@@ -20,7 +21,7 @@ double factorial(int n) {
 // Função executada por cada thread
 void *calcularE(void *thread_id) {
     long id = (long)thread_id;
-    int termos_por_thread = 100 / NUM_THREADS; // Distribuir o trabalho igualmente entre as threads
+    int termos_por_thread = NUM_TERMS / NUM_THREADS; // Distribuir o trabalho igualmente entre as threads
 
     for (int termo = id * termos_por_thread; termo < (id + 1) * termos_por_thread; termo++) {
         double termo_atual = 1.0 / factorial(termo);

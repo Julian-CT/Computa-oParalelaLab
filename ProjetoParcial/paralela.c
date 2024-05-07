@@ -4,7 +4,7 @@
 
 // Número de threads a serem usadas
 #define NUM_THREADS 8
-#define NUM_TERMS 100 // Número de termos da série de Taylor a serem calculados
+#define NUM_TERMS 1000 // Aumentando o número de termos para uma melhor precisão
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
@@ -47,7 +47,10 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    printf("Valor de e final calculado: %.10f\n", e_total);
+    // Adicionando o valor inicial de 1, conforme a definição da série de Taylor de e
+    e_total += 1.0;
+
+    printf("Valor de e final calculado: %.20f\n", e_total);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
     pthread_exit(NULL);

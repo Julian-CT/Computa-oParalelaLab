@@ -2,7 +2,7 @@
 #include <pthread.h>
 
 // Número de threads a serem usadas
-#define NUM_THREADS 8
+#define NUM_THREADS 1
 #define TIME_TARTARUGA 12
 
 double distancia_total = 0.0;

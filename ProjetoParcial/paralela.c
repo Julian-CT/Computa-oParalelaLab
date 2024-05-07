@@ -47,9 +47,6 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    // Adicionando o valor inicial de 1, conforme a definição da série de Taylor de e
-    e_total += 1.0;
-
     printf("Valor de e final calculado: %.20f\n", e_total);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex

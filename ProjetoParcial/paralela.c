@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 #define NUM_THREADS 8
-#define NUM_TERMS 1000000
+#define NUM_TERMS 10
 
 double e_total = 0.0;
 pthread_mutex_t lock;

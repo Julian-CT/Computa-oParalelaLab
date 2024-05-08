@@ -49,8 +49,8 @@ int main() {
 
     // Ajustando a precisão decimal
     int num_casas_decimais = 200; // Ajuste conforme necessário
-    char format_string[20];
-    snprintf(format_string, 20, "Valor de e final calculado: %%.%df\n", num_casas_decimais);
+    char format_string[50]; // Aumentando o tamanho do buffer
+    snprintf(format_string, 50, "Valor de e final calculado: %%.%df\n", num_casas_decimais);
     printf(format_string, e_total);
 
     pthread_mutex_destroy(&lock);

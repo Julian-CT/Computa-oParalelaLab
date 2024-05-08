@@ -5,18 +5,18 @@
 #define NUM_THREADS 8
 
 // Número de termos na série de Euler
-#define NUM_TERMS 100
+#define NUM_TERMS 1000
 
 double e_total = 0.0;
 pthread_mutex_t lock;
 
-// Função para calcular o fatorial
-double factorial(int n) {
-    double fat = 1.0;
-    for (int i = 2; i <= n; i++) {
-        fat *= i;
+// Função recursiva para calcular o fatorial
+double factorial_recursive(int n) {
+    if (n == 0 || n == 1) {
+        return 1.0;
+    } else {
+        return n * factorial_recursive(n - 1);
     }
-    return fat;
 }
 
 // Função executada por cada thread
@@ -25,7 +25,7 @@ void *calcularE(void *thread_id) {
     int termos_por_thread = NUM_TERMS / NUM_THREADS;
 
     for (int termo = id * termos_por_thread; termo < (id + 1) * termos_por_thread; termo++) {
-        double termo_atual = 1.0 / factorial(termo);
+        double termo_atual = 1.0 / factorial_recursive(termo);
         
         pthread_mutex_lock(&lock);
         e_total += termo_atual;

@@ -1,4 +1,3 @@
-//testar fatorial recursivo//
 #include <stdio.h>
 #include <pthread.h>
 #include <stdlib.h>
@@ -48,7 +47,11 @@ int main() {
 
     e_total += 0.0; 
 
-    printf("Valor de e final calculado: %.200f\n", e_total);
+    // Ajustando a precisão decimal
+    int num_casas_decimais = 200; // Ajuste conforme necessário
+    char format_string[20];
+    snprintf(format_string, 20, "Valor de e final calculado: %%.%df\n", num_casas_decimais);
+    printf(format_string, e_total);
 
     pthread_mutex_destroy(&lock);
     pthread_exit(NULL);

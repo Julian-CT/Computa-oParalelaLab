@@ -2,7 +2,7 @@
 
 ![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/bf216a3a-650d-4eb8-96eb-3dfc2608ff47)
 
-## Tempo de execução paralelo
+## Tempo de execução paralela sem a diretiva critical
 
 - 1 processador
 
@@ -22,4 +22,5 @@
 
 - 8 processadores
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/b89a854e-4000-413e-852b-8a8a17f09c09)
 

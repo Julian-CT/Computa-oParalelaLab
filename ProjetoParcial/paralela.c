@@ -46,7 +46,7 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    e_total += 1.0; // Adicionando o termo inicial da série (1/0!)
+    e_total += 0.0; 
 
     printf("Valor de e final calculado: %.200f\n", e_total);
 

@@ -14,4 +14,8 @@
 
 - 4 processadores
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/c59216d7-9f9c-4f96-a2fd-368cec47981f)
+
+- 6 processadores
+
 

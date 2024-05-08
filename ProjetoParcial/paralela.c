@@ -3,6 +3,8 @@
 #include <stdlib.h>
 
 #define NUM_THREADS 8
+
+// Número de termos na série de Euler
 #define NUM_TERMS 1000
 
 double e_total = 0.0;
@@ -45,13 +47,9 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    e_total += 0.0; 
+    e_total += 0.0; // Adicionando o termo inicial da série (1/0!)
 
-    // Ajustando a precisão decimal
-    int num_casas_decimais = 200; // Ajuste conforme necessário
-    char format_string[50]; // Aumentando o tamanho do buffer
-    snprintf(format_string, 50, "Valor de e final calculado: %%.%df\n", num_casas_decimais);
-    printf(format_string, e_total);
+    printf("Valor de e final calculado: %.200f\n", e_total); // Imprime todas as casas decimais disponíveis
 
     pthread_mutex_destroy(&lock);
     pthread_exit(NULL);

@@ -49,7 +49,7 @@ int main() {
 
     e_total += 0.0;
 
-    printf("Valor de e final calculado: %.20f\n", e_total);
+    printf("Valor de e final calculado: %.200f\n", e_total);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
     pthread_exit(NULL);

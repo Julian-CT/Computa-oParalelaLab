@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 // Número de threads a serem usadas
-#define NUM_THREADS 6
+#define NUM_THREADS 8
 #define NUM_TERMS 999 // Reduzindo o número de termos por thread para compensar a remoção do termo inicial
 
 double e_total = 0.0;

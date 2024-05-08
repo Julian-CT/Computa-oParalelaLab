@@ -5,7 +5,7 @@
 #define NUM_THREADS 8
 
 // Número de termos na série de Euler
-#define NUM_TERMS 1000
+#define NUM_TERMS 100
 
 double e_total = 0.0;
 pthread_mutex_t lock;

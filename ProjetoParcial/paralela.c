@@ -4,7 +4,7 @@
 
 // Número de threads a serem usadas
 #define NUM_THREADS 8
-#define NUM_TERMS 999 // Reduzindo o número de termos por thread para compensar a remoção do termo inicial
+#define NUM_TERMS 99999
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada

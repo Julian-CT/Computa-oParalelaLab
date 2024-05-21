@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #define NUM_THREADS 8
-#define NUM_TERMS 99999
+#define NUM_TERMS 999999
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada

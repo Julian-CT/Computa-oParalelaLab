@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include <pthread.h>
-#include <stdlib.h>
+#include <stdio.h> // Proporciona funções de entrada e saída, como printf.
+#include <pthread.h> // Inclui as funções da biblioteca POSIX para programação com threads.
+#include <stdlib.h> // Inclui funções utilitárias, como malloc, free, e atoi.
 #include <omp.h> // Inclusão da biblioteca OpenMP para funcionalidades de paralelização
 
 #define NUM_THREADS 8 // Define o número de threads que serão usadas

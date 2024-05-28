@@ -7,6 +7,7 @@
 #define NUM_TERMS 100 // Define o número de termos da série de Taylor a serem calculados
 
 long double e_total = 0.0; // Variável global para armazenar o valor total de e
+pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
 
 // Função para calcular o fatorial de um número
 long double factorial(int n) {
@@ -27,14 +28,13 @@ void *calcularE(void *thread_id) {
     int inicio = id * termos_por_thread; // Calcula o termo inicial para esta thread
     int fim = (id + 1) * termos_por_thread; // Calcula o termo final para esta thread
 
-    long double e_parcial = 0.0; // Variável para armazenar a soma parcial calculada por esta thread
     for (int termo = inicio; termo < fim; termo++) { // Loop através dos termos atribuídos a esta thread
-        e_parcial += 1.0 / factorial(termo); // Adiciona 1/factorial(termo) à soma parcial
-    }
+        long double termo_valor = 1.0 / factorial(termo); // Calcula 1/factorial(termo)
 
-    #pragma omp critical // Seção crítica do OpenMP para garantir exclusão mútua
-    {
-        e_total += e_parcial; // Adiciona a soma parcial ao total global
+        pthread_mutex_lock(&lock); // Início da seção crítica
+        e_total += termo_valor; // Adiciona o valor do termo ao total global
+        printf("Segundo %d: A tartaruga andou %.50Lf\n", termo + 1, e_total); // Imprime o valor de e até o momento
+        pthread_mutex_unlock(&lock); // Fim da seção crítica
     }
 
     pthread_exit(NULL); // Termina a thread
@@ -42,6 +42,7 @@ void *calcularE(void *thread_id) {
 
 int main() {
     pthread_t threads[NUM_THREADS]; // Array para armazenar os identificadores das threads
+    pthread_mutex_init(&lock, NULL); // Inicialização do mutex
 
     omp_set_num_threads(NUM_THREADS); // Define o número de threads para OpenMP
 
@@ -55,7 +56,7 @@ int main() {
 
     e_total += 0.0;
 
-    printf("A tartaruga andou: %.100Lf\n", e_total); // Imprime o valor total calculado de e com alta precisão
+    pthread_mutex_destroy(&lock); // Destruição do mutex
 
     pthread_exit(NULL); // Termina o programa principal
 }

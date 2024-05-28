@@ -7,6 +7,7 @@
 #define NUM_TERMS 100 // Define o número de termos da série de Taylor a serem calculados
 
 long double e_total = 0.0; // Variável global para armazenar o valor total de e
+long double resultados[NUM_TERMS]; // Array para armazenar os resultados de cada segundo
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
 
 // Função para calcular o fatorial de um número
@@ -33,7 +34,7 @@ void *calcularE(void *thread_id) {
 
         pthread_mutex_lock(&lock); // Início da seção crítica
         e_total += termo_valor; // Adiciona o valor do termo ao total global
-        printf("Segundo %d: A tartaruga andou %.100Lf\n", termo + 1, e_total); // Imprime o valor de e até o momento
+        resultados[termo] = e_total; // Armazena o valor de e_total no array de resultados
         pthread_mutex_unlock(&lock); // Fim da seção crítica
     }
 
@@ -54,7 +55,12 @@ int main() {
         pthread_join(threads[i], NULL); // Bloqueia até que a thread especificada termine
     }
 
-    e_total += 0.0;
+    e_total += 0.0; //Inicializa a série de Taylor
+
+    // Imprime os resultados na ordem correta
+    for (int i = 0; i < NUM_TERMS; i++) {
+        printf("Segundo %d: A tartaruga andou %.100Lf\n", i + 1, resultados[i]);
+    }
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
 

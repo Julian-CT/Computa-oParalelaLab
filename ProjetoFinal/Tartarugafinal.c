@@ -54,7 +54,7 @@ int main() {
     // Adiciona o termo 1/0! que foi omitido nas threads
     e_total += 1.0;
 
-    printf("Valor de e final calculado: %.100f\n", e_total);
+    printf("A tartaruga andou: %.100f\n", e_total);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
     pthread_exit(NULL);

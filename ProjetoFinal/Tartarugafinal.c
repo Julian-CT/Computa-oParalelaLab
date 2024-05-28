@@ -33,7 +33,7 @@ void *calcularE(void *thread_id) {
 
         pthread_mutex_lock(&lock); // Início da seção crítica
         e_total += termo_valor; // Adiciona o valor do termo ao total global
-        printf("Segundo %d: A tartaruga andou %.50Lf\n", termo + 1, e_total); // Imprime o valor de e até o momento
+        printf("Segundo %d: A tartaruga andou %.100Lf\n", termo + 1, e_total); // Imprime o valor de e até o momento
         pthread_mutex_unlock(&lock); // Fim da seção crítica
     }
 

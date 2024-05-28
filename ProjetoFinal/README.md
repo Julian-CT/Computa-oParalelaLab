@@ -25,6 +25,7 @@ Execução com 1 Núcleo:
 
 Execução com 2 Núcleos:
 
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/1dbccf1d-b055-489d-bea3-cc7feaec94ab)
 
 
 

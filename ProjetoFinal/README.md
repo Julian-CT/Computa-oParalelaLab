@@ -17,6 +17,6 @@ gcc -o "O nome que desejar" Tartarugafinal.c -pthread - fopenmp
 
 O código para o problema da tartaruga foi construído utilizando bibliotecas padrões da linguagem C, o que fez com que o tamanho da resposta fosse limitado pelo capacidade do tipo de dado long double.
 
+## Resultado:
 
-
-
+Note que a medida que aumentamos NUM_TERMS, o valor da série de Taylor aumenta em algumas casas decimas.

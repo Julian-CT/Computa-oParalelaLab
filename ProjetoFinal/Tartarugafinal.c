@@ -3,16 +3,19 @@
 #include <stdlib.h>
 
 #define NUM_THREADS 8
-#define NUM_TERMS 999999
+#define NUM_TERMS 100
 
 double e_total = 0.0;
 pthread_mutex_t lock; // Mutex para garantir exclusão mútua ao acessar a variável compartilhada
 
 // Função para calcular o fatorial
 double factorial(int n) {
-    double fat = 1;
-    for (; n > 0; n--) {
-        fat *= n;
+    if (n == 0 || n == 1) {
+        return 1.0;
+    }
+    double fat = 1.0;
+    for (int i = 2; i <= n; i++) {
+        fat *= i;
     }
     return fat;
 }
@@ -49,7 +52,7 @@ int main() {
     }
 
     // Adiciona o termo 1/0! que foi omitido nas threads
-    e_total += 0;
+    e_total += 1.0;
 
     printf("Valor de e final calculado: %.100f\n", e_total);
 

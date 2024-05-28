@@ -18,3 +18,13 @@ gcc -o "O nome que desejar" Tartarugafinal.c -pthread - fopenmp
 O código para o problema da tartaruga foi construído utilizando bibliotecas padrões da linguagem C, o que fez com que o tamanho da resposta fosse limitado pelo capacidade do tipo de dado long double.
 
 ## Prints das execuções: 
+
+Execução com 1 Núcleo:
+
+![image](https://github.com/Julian-CT/Computa-oParalelaLab/assets/144359181/1353772a-00ed-450f-975e-8d1f53efa172)
+
+Execução com 2 Núcleos:
+
+
+
+

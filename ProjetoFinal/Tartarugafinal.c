@@ -51,8 +51,7 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    // Adiciona o termo 1/0! que foi omitido nas threads
-    e_total += 1.0;
+    e_total += 0.0;
 
     printf("A tartaruga andou: %.100f\n", e_total);
 

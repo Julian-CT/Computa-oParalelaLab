@@ -55,8 +55,8 @@ int main() {
 
     e_total += 0.0; // Inicializa a série de Taylor
 
-    printf("Último termo da série de Taylor: 1/%d! = %.100Lf\n", NUM_TERMS - 1, 1.0 / factorial(NUM_TERMS - 1));
     printf("A tartaruga andou: %.100Lf\n", e_total); // Imprime o valor total calculado de e com alta precisão
+    printf("No segundo: %d\n", NUM_TERMS);
 
     pthread_mutex_destroy(&lock); // Destruição do mutex
 

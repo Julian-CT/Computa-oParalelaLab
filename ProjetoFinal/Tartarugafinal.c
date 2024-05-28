@@ -4,7 +4,7 @@
 #include <omp.h> // Inclusão da biblioteca OpenMP para funcionalidades de paralelização
 
 #define NUM_THREADS 8 // Define o número de threads que serão usadas
-#define NUM_TERMS 50 // Define o número de termos da série de Taylor a serem calculados
+#define NUM_TERMS 100 // Define o número de termos da série de Taylor a serem calculados
 
 long double e_total = 0.0; // Variável global para armazenar o valor total de e
 

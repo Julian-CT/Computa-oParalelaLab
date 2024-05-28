@@ -53,9 +53,9 @@ int main() {
         pthread_join(threads[i], NULL); // Bloqueia até que a thread especificada termine
     }
 
-    e_total += 1.0; // Adiciona o termo 1/0! ao total (1.0)
+    e_total += 0.0;
 
-    printf("A tartaruga andou: %.100f\n", e_total); // Imprime o valor total calculado de e com alta precisão
+    printf("A tartaruga andou: %.50f\n", e_total); // Imprime o valor total calculado de e com alta precisão
 
     pthread_exit(NULL); // Termina o programa principal
 }
